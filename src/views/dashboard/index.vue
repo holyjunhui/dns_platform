@@ -47,9 +47,6 @@ export default {
         zoom:9
       })
     },
-    handleClick() {
-      console.log("this.click", this.form);
-    },
     initRingChart() {
       const data = [
         { genre: "Sports", sold: 275 },
