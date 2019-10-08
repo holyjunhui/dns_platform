@@ -4,9 +4,15 @@
     <button @click="handleClick">获取</button>
     <div ref="demo"></div>
     <div ref="bar"></div>
+    <hr>
+
+    <div ref="mapbox" id="mapbox"></div>
   </div>
 </template>
 <script>
+import mapboxgl from "mapbox-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
+
 import G2 from "@antv/g2";
 import MyComponents from "@/components/MyComponents";
 import { setTimeout } from "timers";
@@ -23,6 +29,7 @@ export default {
     MyComponents
   },
   mounted() {
+    this.initMapbox()
     this.initRingChart();
     this.initBar()
     setTimeout(() => {
@@ -32,6 +39,14 @@ export default {
   },
   computed: {},
   methods: {
+    initMapbox(){
+      mapboxgl.accessToken = "pk.eyJ1IjoiaG9seWh1aSIsImEiOiJjanppMW41dHoxMWFqM2x0Nm43bjl0cW5yIn0.gq7AZgLKA1sJGMZPqFBUGQ"
+      const map = new mapboxgl.Map({
+        container: "mapbox",
+        style:"mapbox://styles/mapbox/streets-v11",
+        zoom:9
+      })
+    },
     handleClick() {
       console.log("this.click", this.form);
     },
@@ -95,3 +110,9 @@ export default {
   }
 };
 </script>
+<style lang="scss" scoped>
+#mapbox {
+  width: 100vw;
+  height: 600px;
+}
+</style>

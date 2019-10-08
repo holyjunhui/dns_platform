@@ -22,7 +22,7 @@ export default {
   width: 100%;
   padding: 20px;
   position: relative;
-  overflow: hidden;
+  overflow: auto;
 }
 
 </style>

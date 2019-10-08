@@ -1,6 +1,8 @@
 <template>
   <div>
-    ceshieeefadf页面
+    <template v-for="index in 4">
+			<li :key="index">{{index}}</li>
+		</template>
   </div>
 </template>
 <script>
